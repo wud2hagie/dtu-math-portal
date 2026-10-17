@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/calculus1"
+  to = "/courses/calculus-i/"
+  status = 301
+
+[[redirects]]
+  from = "/calculus1.html"
+  to = "/courses/calculus-i/"
+  status = 301

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mathematics Course Portal · Debre Tabor University</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='2' y='26' font-size='30' fill='%23D75C2A' font-family='Georgia,serif'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F5EEDC;--white:#FCF9EF;--ink:#0B2545;--ink2:#1A3A5C;--soft:rgba(11,37,69,.65);--faint:rgba(11,37,69,.35);--line:rgba(11,37,69,.12);--orange:#D75C2A;--odeep:#A8421A;--green:#2A7553}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Newsreader',Georgia,serif;font-size:17px;line-height:1.55}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(11,37,69,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(11,37,69,.07) 1px,transparent 1px);background-size:24px 24px;pointer-events:none;opacity:.6}
+main{position:relative;z-index:1}
+.mono{font-family:'JetBrains Mono',monospace}
+.wrap{max-width:1100px;margin:0 auto;padding:0 26px}
+.top{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);background:rgba(245,238,220,.86);border-bottom:1px solid var(--faint)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:13px;padding-bottom:13px}
+.brand{font-family:'Space Grotesk';font-weight:700;font-size:16px;display:flex;gap:8px;align-items:center;text-decoration:none;color:var(--ink)}
+.brand b{color:var(--orange);font-size:22px;font-weight:400}
+.hero{padding:80px 0 36px}
+.kick{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);display:flex;gap:12px;align-items:center;margin-bottom:20px}
+.kick::before{content:'';width:34px;height:1px;background:var(--ink)}
+h1{font-family:'Space Grotesk';font-size:clamp(46px,8vw,100px);font-weight:700;line-height:.92;letter-spacing:-.04em;margin:0 0 12px}
+h1 em{font-family:'Newsreader';font-style:italic;font-weight:400;color:var(--orange)}
+.sub{font-family:'Newsreader';font-style:italic;font-size:clamp(18px,2.3vw,25px);color:var(--ink2);max-width:620px;margin:0 0 30px;line-height:1.35}
+.frame{position:relative;border:1px solid var(--ink);background:var(--white);height:230px}
+.frame canvas{display:block;width:100%;height:100%}
+.lab{position:absolute;top:10px;left:12px;font-family:'Space Grotesk';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);background:var(--white);padding:3px 9px;border:1px solid var(--faint)}
+.sec{padding:70px 0 30px}
+h2{font-family:'Space Grotesk';font-size:clamp(30px,4.5vw,50px);font-weight:600;letter-spacing:-.03em;margin:0 0 4px}
+.epi{font-style:italic;color:var(--ink2);margin:0 0 30px;max-width:540px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:940px){.grid{grid-template-columns:1fr}}
+.card{position:relative;border:1px solid var(--ink);background:var(--white);padding:24px;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(11,37,69,.14)}
+.card.live{border:2px solid var(--orange)}
+.card.soon{opacity:.6}
+.badge{position:absolute;top:-11px;right:14px;font-family:'JetBrains Mono';font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px}
+.badge.on{background:var(--green);color:#fff}
+.badge.off{background:var(--paper);border:1px solid var(--orange);color:var(--odeep)}
+.code{font-family:'JetBrains Mono';font-size:11px;color:var(--soft);margin-bottom:6px}
+.card h3{font-family:'Space Grotesk';font-size:23px;font-weight:600;margin:0 0 6px}
+.card p{font-size:15px;color:var(--ink2);margin:0 0 14px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.chip{font-family:'Space Grotesk';font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--faint);padding:4px 8px;color:var(--ink2)}
+.grow{flex:1}
+.enter{display:inline-flex;gap:8px;align-items:center;font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:11px 17px;border:1.5px solid var(--orange);color:var(--odeep);align-self:flex-start}
+.enter:hover{background:var(--orange);color:#fff}
+.locked{font-family:'Space Grotesk';font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--soft);border:1px dashed var(--faint);padding:10px 13px;align-self:flex-start}
+.about{margin-top:56px;border:1px solid var(--ink);border-left:5px solid var(--orange);background:var(--white);padding:18px 22px;max-width:800px}
+.about b{font-family:'Space Grotesk';font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--odeep)}
+footer{margin-top:80px;background:var(--ink);color:var(--paper);padding:52px 0 26px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.fb{font-family:'Space Grotesk';font-weight:700;font-size:24px}
+footer p{color:rgba(245,238,220,.75);font-style:italic;max-width:380px;margin:6px 0 0}
+.fbot{max-width:1100px;margin:36px auto 0;padding:16px 26px 0;border-top:1px solid rgba(245,238,220,.15);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:'JetBrains Mono';font-size:11px;color:rgba(245,238,220,.5)}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/"><b>∫</b> DTU · MATHEMATICS PORTAL</a>
+  <span class="mono" style="font-size:11px;color:var(--soft)">Debre Tabor University</span>
+</div></header>
+<main>
+  <section class="hero wrap">
+    <div class="kick">Learn / Practise / Apply — Department of Mathematics</div>
+    <h1>Course <em>Portal.</em></h1>
+    <p class="sub">interactive, blended-learning companions for the mathematics curriculum — every graph animates, every answer checks itself, every worksheet prints itself.</p>
+    <div class="frame">
+      <canvas id="c"></canvas>
+      <div class="lab">f(x) = sin x · f′(x) = cos x — live from Calculus I</div>
+    </div>
+  </section>
+  <section class="sec wrap">
+    <h2>Courses.</h2>
+    <p class="epi">One portal, one design language. Each course is a self-contained interactive field guide.</p>
+    <div class="grid">
+      <article class="card live">
+        <span class="badge on">● Live</span>
+        <div class="code">MATH2021 · Year II / Sem I · 7 ECTS</div>
+        <h3>Calculus I</h3>
+        <p>Limits &amp; continuity, derivatives, applications, and integrals — the full 19-week course as an interactive field guide.</p>
+        <div class="chips"><span class="chip">Limits</span><span class="chip">Derivatives</span><span class="chip">Applications</span><span class="chip">Integrals</span></div>
+        <div class="grow"></div>
+        <a class="enter" href="courses/calculus-i/index.html">Enter course →</a>
+      </article>
+      <article class="card soon">
+        <span class="badge off">In preparation</span>
+        <div class="code">MATH2022 · Year II / Sem II</div>
+        <h3>Calculus II</h3>
+        <p>Advanced techniques, sequences &amp; series, parametric and polar calculus.</p>
+        <div class="grow"></div>
+        <span class="locked">Coming soon</span>
+      </article>
+      <article class="card soon">
+        <span class="badge off">In preparation</span>
+        <div class="code">Next in sequence</div>
+        <h3>Linear Algebra</h3>
+        <p>Vectors, matrices, determinants, eigenvalues — same interactive treatment.</p>
+        <div class="grow"></div>
+        <span class="locked">Coming soon</span>
+      </article>
+    </div>
+    <div class="about" id="about">
+      <b>About this portal</b><br>
+      Built to accompany face-to-face teaching and Open edX at Debre Tabor University. Courses work offline after first load and follow the department's practice standard: interpretation · method · calculation · conclusion. Instructor: Wudneh Tilahun Mengist — wudneh.tilahun@dtu.edu.et · Block 015 Room 001.
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">
+  <div><div class="fb">∫ DTU Mathematics</div><p>A growing portal of interactive course companions. Learn · Practise · Apply.</p></div>
+  <div class="mono" style="font-size:12px;color:rgba(245,238,220,.7)">© 2026 · Department of Mathematics</div>
+</div></footer>
+<script>
+(function(){
+  var c=document.getElementById('c'),g=c.getContext('2d');
+  function draw(ts){
+    var d=window.devicePixelRatio||1,r=c.getBoundingClientRect();
+    if(c.width!==Math.round(r.width*d)){c.width=Math.round(r.width*d);c.height=Math.round(r.height*d);}
+    g.setTransform(d,0,0,d,0,0);
+    var w=r.width,h=r.height;
+    var x0=-Math.PI-0.4,x1=Math.PI+0.4,y0=-1.9,y1=1.9;
+    function X(x){return (x-x0)/(x1-x0)*w}function Y(y){return h-(y-y0)/(y1-y0)*h}
+    g.clearRect(0,0,w,h);
+    g.strokeStyle='rgba(11,37,69,.08)';g.lineWidth=1;
+    for(var i=-3;i<=3;i++){g.beginPath();g.moveTo(X(i),0);g.lineTo(X(i),h);g.stroke();}
+    [-1,0,1].forEach(function(v){g.beginPath();g.moveTo(0,Y(v));g.lineTo(w,Y(v));g.stroke();});
+    var x=1.55*Math.sin(ts*0.00055),m=Math.cos(x),yy=Math.sin(x);
+    g.strokeStyle='rgba(215,92,42,.4)';g.lineWidth=1.3;g.setLineDash([5,5]);g.beginPath();
+    for(var p=0;p<=300;p++){var xx=x0+p/300*(x1-x0);p?g.lineTo(X(xx),Y(Math.cos(xx))):g.moveTo(X(xx),Y(Math.cos(xx)));}
+    g.stroke();g.setLineDash([]);
+    g.strokeStyle='#0B2545';g.lineWidth=2.2;g.beginPath();
+    for(p=0;p<=300;p++){xx=x0+p/300*(x1-x0);p?g.lineTo(X(xx),Y(Math.sin(xx))):g.moveTo(X(xx),Y(Math.sin(xx)));}
+    g.stroke();
+    g.strokeStyle='#D75C2A';g.lineWidth=2;g.beginPath();
+    g.moveTo(X(x-1),Y(yy-m));g.lineTo(X(x+1),Y(yy+m));g.stroke();
+    g.fillStyle='#FCF9EF';g.strokeStyle='#D75C2A';g.lineWidth=2.4;
+    g.beginPath();g.arc(X(x),Y(yy),6,0,7);g.fill();g.stroke();
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
