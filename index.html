@@ -29,6 +29,12 @@ h1 em{font-family:'Newsreader';font-style:italic;font-weight:400;color:var(--ora
 .frame{position:relative;border:1px solid var(--ink);background:var(--white);height:230px}
 .frame canvas{display:block;width:100%;height:100%}
 .lab{position:absolute;top:10px;left:12px;font-family:'Space Grotesk';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);background:var(--white);padding:3px 9px;border:1px solid var(--faint)}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);border-top:0;background:var(--white)}
+.statrow div{padding:12px 16px;border-right:1px solid var(--faint)}
+.statrow div:last-child{border-right:0}
+.statrow .n{font-family:'JetBrains Mono';font-size:20px;font-weight:500}
+.statrow .l{font-family:'Space Grotesk';font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--soft);margin-top:3px}
+@media(max-width:760px){.statrow{grid-template-columns:repeat(2,1fr)}.statrow div:nth-child(2){border-right:0}}
 .sec{padding:70px 0 30px}
 h2{font-family:'Space Grotesk';font-size:clamp(30px,4.5vw,50px);font-weight:600;letter-spacing:-.03em;margin:0 0 4px}
 .epi{font-style:italic;color:var(--ink2);margin:0 0 30px;max-width:540px}
@@ -73,6 +79,12 @@ footer p{color:rgba(245,238,220,.75);font-style:italic;max-width:380px;margin:6p
       <canvas id="c"></canvas>
       <div class="lab">f(x) = sin x · f′(x) = cos x — live from Calculus I</div>
     </div>
+    <div class="statrow">
+      <div><div class="n">2</div><div class="l">Courses live</div></div>
+      <div><div class="n">28</div><div class="l">Animated instruments</div></div>
+      <div><div class="n">40+</div><div class="l">Auto-marked items</div></div>
+      <div><div class="n">∞</div><div class="l">Seeded worksheets</div></div>
+    </div>
   </section>
   <section class="sec wrap">
     <h2>Courses.</h2>
@@ -87,14 +99,22 @@ footer p{color:rgba(245,238,220,.75);font-style:italic;max-width:380px;margin:6p
         <div class="grow"></div>
         <a class="enter" href="courses/calculus-i/index.html">Enter course →</a>
       </article>
-     
-  <h3>Calculus II</h3>
-  <p>Inverse functions, advanced integration, L'Hôpital's rule, improper integrals, and sequences, series &amp; power series — the full course as an interactive field guide.</p>
-  <div class="chips"><span class="chip">Inverse Fns</span><span class="chip">Integration</span><span class="chip">L'Hôpital</span><span class="chip">Series</span></div>
-  <div class="grow"></div>
-  <a class="enter" href="courses/calculus-ii/index.html">Enter course →</a>
-</article>
-</article>
+      <article class="card live">
+        <span class="badge on">● Live</span>
+        <div class="code">MATH2022 · Year II / Sem II · 7 ECTS</div>
+        <h3>Calculus II</h3>
+        <p>Inverse functions, advanced integration, L'Hôpital's rule, improper integrals, and sequences, series &amp; power series — the full course as an interactive field guide.</p>
+        <div class="chips"><span class="chip">Inverse Fns</span><span class="chip">Integration</span><span class="chip">L'Hôpital</span><span class="chip">Series</span></div>
+        <div class="grow"></div>
+        <a class="enter" href="courses/calculus-ii/index.html">Enter course →</a>
+      </article>
+      <article class="card soon">
+        <span class="badge off">In preparation</span>
+        <div class="code">Next in sequence</div>
+        <h3>Linear Algebra</h3>
+        <p>Vectors, matrices, determinants, eigenvalues — same interactive treatment.</p>
+        <div class="grow"></div>
+        <span class="locked">Coming soon</span>
       </article>
     </div>
     <div class="about" id="about">
@@ -107,6 +127,7 @@ footer p{color:rgba(245,238,220,.75);font-style:italic;max-width:380px;margin:6p
   <div><div class="fb">∫ DTU Mathematics</div><p>A growing portal of interactive course companions. Learn · Practise · Apply.</p></div>
   <div class="mono" style="font-size:12px;color:rgba(245,238,220,.7)">© 2026 · Department of Mathematics</div>
 </div></footer>
+<div style="background:var(--ink)"><div class="fbot"><span>Calculus I (MATH2021) · Calculus II (MATH2022) · more coming</span><span>Static site · hosted on Netlify</span></div></div>
 <script>
 (function(){
   var c=document.getElementById('c'),g=c.getContext('2d');
