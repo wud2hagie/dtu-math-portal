@@ -20,7 +20,7 @@ jobs:
           from html.parser import HTMLParser
           from pathlib import Path
           html = Path("index.html").read_text(encoding="utf-8")
-          assert "<!DOCTYPE html>" in html[:100].upper(), "Missing HTML doctype"
+          assert "<!doctype html>" in html[:100].lower(), "Missing HTML doctype"
           class SmokeParser(HTMLParser):
               pass
           parser = SmokeParser()
