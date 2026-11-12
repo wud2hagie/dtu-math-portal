@@ -1,0 +1,31 @@
+name: CI
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check HTML document
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          html = Path("index.html").read_text(encoding="utf-8")
+          assert "<!doctype html>" in html[:100].lower(), "Missing HTML doctype"
+          class SmokeParser(HTMLParser):
+              pass
+          parser = SmokeParser()
+          parser.feed(html)
+          parser.close()
+          assert "<title>" in html.lower(), "Missing document title"
+          print("index.html parsed successfully")
+          PY
